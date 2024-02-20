@@ -20,9 +20,9 @@ def load_dados():
 # Chama função
 dados, emp_at_baixa = load_dados()
 
-##Titulo
+##Titulo - Presença de espaços de culto por ano e situação cadastral
 st.markdown("""
-<h4 style='text-align: center; color:#54595F;font-family:Segoe UI, sans-serif'>Presença de espaços de culto por ano e situação cadastral</h4>
+<h4 style='text-align: center; color:#54595F;font-family:Segoe UI, sans-serif'><br></h4>
 """, unsafe_allow_html=True)
 
 ##retira o made streamlit no fim da página##
@@ -69,6 +69,17 @@ dict(
  )
 )
 
+# Add image
+fig.add_layout_image(
+dict(
+    source="",
+    xref="paper", yref="paper",
+    x=0.98, y=1.02,
+    sizex=0.1, sizey=0.1,
+    xanchor="right", yanchor="bottom"
+ )
+)
+
 # Criar o scatter_mapbox by year
 fig2 = px.scatter_mapbox(dados,
                     width=1200, height=950,
@@ -100,7 +111,7 @@ fig3 = px.density_mapbox(emp_at_baixa,
                     lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
                     lon='longitude_final',  # Substitua 'longitude' pelo nome da coluna que contém a longitude
                     z='numero',
-                    radius=5,
+                    radius=10,
                     mapbox_style="carto-positron",
                     center={"lat": -14.2350, "lon": -53.9253},
                     zoom=3.5,
