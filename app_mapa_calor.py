@@ -199,12 +199,8 @@ with tab1:
     if st.button('Download Chart'):
         # Convert the figure to an image
         image = fig.to_image(format='png')
-    
-        # Prompt the user to enter a new file name
-        new_file_name = st.text_input('Enter a new file name', 'chart.png')
-    
         # Download the image with the new file name
-        st.download_button(label='Download', data=image, file_name=new_file_name, mime='image/png')
+        st.download_button(label='Download', data=image, file_name='chart.png', mime='image/png')
 with tab2:
     st.plotly_chart(fig2, use_container_width=True)
 with tab3:
