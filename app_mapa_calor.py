@@ -81,7 +81,7 @@ dict(
 # Add image
 fig.add_layout_image(
 dict(
-    source="obs",
+    source=obs,
     xref="paper", yref="paper",
     x=0.85, y=1.02,
     sizex=0.1, sizey=0.1,
