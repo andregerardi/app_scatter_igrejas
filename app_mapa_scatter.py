@@ -35,29 +35,26 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+# Obter o layout atual da página
+page_layout = st.report_thread.get_report_ctx().layout
+
 # Centralizando o mapa
-st.markdown(
-    """
-    <div style="display: flex; justify-content: center;">
-        <div>
-            """
-    + px.scatter_mapbox(dados,
-                        width=1100, height=950,
-                        lat='latitude_final',
-                        lon='longitude_final',
-                        size='numero',
-                        color_discrete_sequence=['#d62728'],
-                        hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL'],
-                        hover_name='NOME_MUNICIPIO',
-                        animation_frame="ano",
-                        zoom=3.5,
-                        center={"lat": -14.2350, "lon": -47.9253},
-                        size_max=3,
-                        mapbox_style="open-street-map").to_html()
-    + """
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+col1, col2, col3 = st.columns([1, 4, 1])
+with col2:
+    fig = px.scatter_mapbox(dados,
+                            width=1100, height=950,
+                            lat='latitude_final',
+                            lon='longitude_final',
+                            size='numero',
+                            color_discrete_sequence=['#d62728'],
+                            hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL'],
+                            hover_name='NOME_MUNICIPIO',
+                            animation_frame="ano",
+                            zoom=3.5,
+                            center={"lat": -14.2350, "lon": -47.9253},
+                            size_max=3,
+                            mapbox_style="open-street-map")
+
+    # Exibir o mapa no Streamlit
+    st.plotly_chart(fig, use_container_width=True)
 
