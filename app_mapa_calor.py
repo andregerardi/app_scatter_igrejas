@@ -43,6 +43,7 @@ tab1, tab2, tab3, tab4 = st.tabs(["Density Map por ano", "Scatter Map por ano",
 
 # Criar o density_mapbox by year
 fig = px.density_mapbox(dados,
+                    width = 1400, height = 1000,
                     lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
                     lon='longitude_final',  # Substitua 'longitude' pelo nome da coluna que contém a longitude
                     z='numero',
@@ -56,7 +57,7 @@ fig = px.density_mapbox(dados,
                     hover_data=['situação_cadastral_rec','RAZÃO SOCIAL'],
                     color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
 # Remove a legenda de cores
-fig.update_layout(coloraxis_showscale=False,margin=dict(l=0, r=0, b=0, t=0))
+fig.update_layout(coloraxis_showscale=False)
 
 
 # Add image
