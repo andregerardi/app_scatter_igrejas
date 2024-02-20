@@ -48,10 +48,9 @@ fig = px.density_mapbox(dados,
                         zoom=3.5,
                         opacity=0.6,
                         animation_frame="ano",
-                        title='Presença de templos segundo situação cadastral e ano',
                         hover_name='NOME_MUNICIPIO',  # Use 'NM_MUN' como hover_name
                         hover_data=['situação_cadastral_rec','RAZÃO SOCIAL'],
-                        )  # Escolha uma escala de cores apropriada
+                        color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
 
 # Exibir o mapa no Streamlit
 st.plotly_chart(fig, use_container_width=True)
