@@ -6,3 +6,4 @@ pip
 openpyxl
 plotly
 Pillow
+PIL
