@@ -35,34 +35,23 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-# Centralizando o mapa
-tab1, tab2 = st.tabs(["Scatter Map", "Density Map"])
+# Criar o density_mapbox
+fig = px.density_mapbox(dados,
+                        width = 1200, height = 950,
+                        lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
+                        lon='longitude_final',  # Substitua 'longitude' pelo nome da coluna que contém a longitude
+                        z='numero',
+                        radius=20,
+                        mapbox_style="carto-positron",
+                        center={"lat": -14.2350, "lon": -51.9253},
+                        zoom=3.5,
+                        opacity=0.6,
+                        animation_frame="ano",
+                        hover_name='NOME_MUNICIPIO',  # Use 'NM_MUN' como hover_name
+                        hover_data=['situação_cadastral_rec','RAZÃO SOCIAL'],
+                        color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
 
-### Tabela 1
-with tab1:
-    # Criar o density_mapbox
-    fig = px.density_mapbox(dados,
-                            width = 1200, height = 950,
-                            lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
-                            lon='longitude_final',  # Substitua 'longitude' pelo nome da coluna que contém a longitude
-                            z='numero',
-                            radius=20,
-                            mapbox_style="carto-positron",
-                            center={"lat": -14.2350, "lon": -51.9253},
-                            zoom=3.5,
-                            opacity=0.6,
-                            animation_frame="ano",
-                            hover_name='NOME_MUNICIPIO',  # Use 'NM_MUN' como hover_name
-                            hover_data=['situação_cadastral_rec','RAZÃO SOCIAL'],
-                            color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
-    
-    # Adicionando o mapa ao contêiner
-    st.plotly_chart(fig, use_container_width=True)
-
-### Tabela 2
-with tab2:
-    # Centralizando o mapa
-    fig = px.scatter_mapbox(dados,
+fig2 = px.scatter_mapbox(dados,
                             width=1100, height=950,
                             lat='latitude_final',
                             lon='longitude_final',
@@ -75,6 +64,11 @@ with tab2:
                             center={"lat": -14.2350, "lon": -51.9253},
                             size_max=3,
                             mapbox_style="open-street-map")
-    
-    # Exibir o mapa no Streamlit
-    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+
+# Centralizando o mapa
+tab1, tab2 = st.tabs(["Density Map" "Scatter Map"])
+
+with tab1:
+        st.plotly_chart(fig, use_container_width=True)
+with tab2:
+        st.plotly_chart(fig2, theme="streamlit", use_container_width=True)
