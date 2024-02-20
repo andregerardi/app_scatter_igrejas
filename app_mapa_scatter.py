@@ -40,8 +40,8 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 with st.container():
-    col3,col4,col5 = st.columns([.5,4,.5])
-    with col3:
+    col3,col4,col5 = st.columns([0,0,0])
+    with col4:
         fig = px.scatter_mapbox(dados,
                                 #title='Presença de templos segundo situação cadastral e ano',
                                 width=1100, height=900,
