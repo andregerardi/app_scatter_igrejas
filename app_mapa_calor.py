@@ -36,8 +36,8 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Centralizando o mapa
-tab1, tab2, tab3, tab4 = st.tabs(["Density Map by year", "Scatter Map by year",
-                                 "Density Map", "Scatter Map"])
+tab1, tab2, tab3, tab4 = st.tabs(["Density Map (ano)", "Scatter Map (ano)",
+                                 "Density Map (situação cadastral)", "Scatter Map (situação cadastral)"])
 
 # Criar o density_mapbox by year
 fig = px.density_mapbox(dados,
@@ -88,7 +88,7 @@ fig3 = px.density_mapbox(emp_at_baixa,
                     hover_data=['situação_cadastral_rec','RAZÃO SOCIAL'],
                     color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
 # Remove a legenda de cores
-fig.update_layout(coloraxis_showscale=False)
+fig3.update_layout(coloraxis_showscale=False)
 
 # Criar o scatter_mapbox
 fig4 = px.scatter_mapbox(emp_at_baixa,
