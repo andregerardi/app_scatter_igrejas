@@ -43,7 +43,7 @@ fig = px.density_mapbox(dados,
                     width = 1200, height = 950,
                     lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
                     lon='longitude_final',  # Substitua 'longitude' pelo nome da coluna que contém a longitude
-                    size='numero',
+                    z='numero',
                     radius=20,
                     mapbox_style="carto-positron",
                     center={"lat": -14.2350, "lon": -51.9253},
