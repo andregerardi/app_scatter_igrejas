@@ -22,7 +22,7 @@ dados, emp_at_baixa = load_dados()
 
 ##Titulo
 st.markdown("""
-<h4 style='text-align: center; color:#54595F;font-family:Segoe UI, sans-serif'>Presença de templos segundo situação cadastral e ano</h4>
+<h4 style='text-align: center; color:#54595F;font-family:Segoe UI, sans-serif'>Presença de templos por ano e situação cadastral</h4>
 """, unsafe_allow_html=True)
 
 ##retira o made streamlit no fim da página##
