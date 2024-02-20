@@ -81,6 +81,9 @@ dict(
  )
 )
 
+# Display the bar chart using st.plotly_chart()
+st.plotly_chart(fig)
+
 if st.button('Download Chart'):
     # Convert the figure to an image
     image = fig.to_image(format='png')
