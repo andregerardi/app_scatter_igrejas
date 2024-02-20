@@ -52,18 +52,18 @@ fig = px.density_mapbox(dados,
                         color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
 
 fig2 = px.scatter_mapbox(dados,
-                            width=1100, height=950,
-                            lat='latitude_final',
-                            lon='longitude_final',
-                            size='numero',
-                            color_discrete_sequence=['#d62728'],
-                            hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL'],
-                            hover_name='NOME_MUNICIPIO',
-                            animation_frame="ano",
-                            zoom=3.5,
-                            center={"lat": -14.2350, "lon": -51.9253},
-                            size_max=3,
-                            mapbox_style="open-street-map")
+                        width=1100, height=950,
+                        lat='latitude_final',
+                        lon='longitude_final',
+                        size='numero',
+                        color_discrete_sequence=['#d62728'],
+                        hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL'],
+                        hover_name='NOME_MUNICIPIO',
+                        animation_frame="ano",
+                        zoom=3.5,
+                        center={"lat": -14.2350, "lon": -51.9253},
+                        size_max=3,
+                        mapbox_style="open-street-map")
 
 # Centralizando o mapa
 tab1, tab2 = st.tabs(["Density Map" "Scatter Map"])
