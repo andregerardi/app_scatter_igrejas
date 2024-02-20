@@ -74,7 +74,7 @@ imagem = Image.open('obervatório.png')
 # Add image
 fig.add_layout_image(
 dict(
-    source=imagem,
+    source='imagem',
     xref="paper", yref="paper",
     x=0.85, y=1.02,
     sizex=0.1, sizey=0.1,
