@@ -21,13 +21,6 @@ def load_dados():
 # Chama função
 dados, emp_at_baixa = load_dados()
 
-##import image logo
-@st.cache(allow_output_mutation=True)
-def load_image():
-    obs = Image.open('obervatório.png')
-    return obs
-obs = load_image()
-
 
 ##Titulo - Presença de espaços de culto por ano e situação cadastral
 st.markdown("""
@@ -81,7 +74,7 @@ dict(
 # Add image
 fig.add_layout_image(
 dict(
-    source=obs,
+    source=Image.open('obervatório.png'),
     xref="paper", yref="paper",
     x=0.85, y=1.02,
     sizex=0.1, sizey=0.1,
