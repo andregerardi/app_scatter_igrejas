@@ -81,18 +81,12 @@ dict(
  )
 )
 
-# Display the bar chart using st.plotly_chart()
-st.plotly_chart(fig)
-
 if st.button('Download Chart'):
     # Convert the figure to an image
     image = fig.to_image(format='png')
 
-    # Prompt the user to enter a new file name
-    new_file_name = st.text_input('Enter a new file name', 'chart.png')
-
     # Download the image with the new file name
-    st.download_button(label='Download', data=image, file_name=new_file_name, mime='image/png')
+    st.download_button(label='Download', data=image, file_name='chart.png', mime='image/png')
 
 
 # Criar o scatter_mapbox by year
