@@ -76,7 +76,8 @@ dict(
     xref="paper", yref="paper",
     x=0.95, y=.90,
     sizex=0.5, sizey=0.5,
-    xanchor="right", yanchor="bottom"
+    xanchor="right", yanchor="bottom",
+    bgcolor="white"
  )
 )
 
