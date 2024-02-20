@@ -2,6 +2,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from PIL import Image
 
 # Importar os dados
 @st.cache(allow_output_mutation=True, persist=True)
