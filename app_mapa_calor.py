@@ -63,7 +63,7 @@ fig.add_layout_image(
 dict(
     source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png",
     xref="paper", yref="paper",
-    x=.80, y=1.03,
+    x=.95, y=.99,
     sizex=0.1, sizey=0.1,
     xanchor="right", yanchor="bottom"
  )
