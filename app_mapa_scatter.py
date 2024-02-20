@@ -42,7 +42,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 with st.container():
     fig = px.scatter_mapbox(dados,
                             #title='Presença de templos segundo situação cadastral e ano',
-                            width=1100, height=950,
+                            width=1100, height=900,
                             lat='latitude_final',
                             lon='longitude_final',
                             size='numero',
