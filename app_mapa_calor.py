@@ -20,10 +20,8 @@ dados = load_dados()
 
 ##Titulo
 st.markdown("""
-<br>
 <h4 style='text-align: center; color:#54595F;font-family:Segoe UI, sans-serif'>Presença de templos segundo situação cadastral e ano</h4>
 """, unsafe_allow_html=True)
-st.markdown("---")
 
 ##retira o made streamlit no fim da página##
 hide_st_style = """
