@@ -58,6 +58,17 @@ fig = px.density_mapbox(dados,
 # Remove a legenda de cores
 fig.update_layout(coloraxis_showscale=False)
 
+# Add image
+fig.add_layout_image(
+dict(
+    source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png",
+    xref="paper", yref="paper",
+    x=1.05, y=1.03,
+    sizex=0.1, sizey=0.1,
+    xanchor="right", yanchor="bottom"
+ )
+)
+
 # Criar o scatter_mapbox by year
 fig2 = px.scatter_mapbox(dados,
                     width=1200, height=950,
