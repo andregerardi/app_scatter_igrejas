@@ -58,6 +58,6 @@ with st.container():
                                 size_max=3,
                                 mapbox_style="open-street-map")
 
-# Exibir o mapa no Streamlit
-st.plotly_chart(fig)
+        # Exibir o mapa no Streamlit
+        st.plotly_chart(fig)
 
