@@ -66,7 +66,7 @@ fig2 = px.scatter_mapbox(dados,
                     zoom=3.5,
                     center={"lat": -14.2350, "lon": -51.9253},
                     size_max=3,
-                    mapbox_style="open-street-map")
+                    mapbox_style="carto-positron")
 
 with tab1:  
     st.plotly_chart(fig, use_container_width=True)
