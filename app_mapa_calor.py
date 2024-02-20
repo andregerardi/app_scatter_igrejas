@@ -195,12 +195,6 @@ dict(
 
 with tab1:  
     st.plotly_chart(fig, use_container_width=True)
-    # Add a download button to rename the downloaded file
-    if st.button('Download Chart'):
-        # Convert the figure to an image
-        image = fig.to_image(format='png')
-        # Download the image with the new file name
-        st.download_button(label='Download', data=image, file_name='chart.png', mime='image/png')
 with tab2:
     st.plotly_chart(fig2, use_container_width=True)
 with tab3:
