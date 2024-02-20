@@ -67,8 +67,7 @@ fig2 = px.scatter_mapbox(dados,
 
 # Centralizando o mapa
 tab1, tab2 = st.tabs(["Density Map" "Scatter Map"])
-
 with tab1:
         st.plotly_chart(fig, use_container_width=True)
 with tab2:
-        st.plotly_chart(fig2, theme="streamlit", use_container_width=True)
+        st.plotly_chart(fig2, use_container_width=True)
