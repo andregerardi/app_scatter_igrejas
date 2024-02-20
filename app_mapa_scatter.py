@@ -46,7 +46,7 @@ fig = px.scatter_mapbox(dados,
                         hover_name='NOME_MUNICIPIO',
                         animation_frame="ano",
                         zoom=3.5,
-                        center={"lat": -14.2350, "lon": -47.9253},
+                        center={"lat": -14.2350, "lon": -51.9253},
                         size_max=3,
                         mapbox_style="open-street-map")
 
