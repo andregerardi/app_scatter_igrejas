@@ -37,7 +37,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Centralizando o mapa
 tab1, tab2, tab3, tab4 = st.tabs(["Density Map<br>(ano)", "Scatter Map<br>(ano)",
-                                 "Density Map<br>(situação cadastral)", "Scatter Map<br>(situação cadastral)"],unsafe_allow_html=True)
+                                 "Density Map<br>(situação cadastral)", "Scatter Map<br>(situação cadastral)"])
 
 # Criar o density_mapbox by year
 fig = px.density_mapbox(dados,
