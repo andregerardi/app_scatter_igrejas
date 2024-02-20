@@ -2,7 +2,6 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from PIL import Image
 
 # Importar os dados
 @st.cache(allow_output_mutation=True, persist=True)
@@ -70,14 +69,14 @@ dict(
     xanchor="right", yanchor="bottom"
  )
 )
-imagem = Image.open('obervatório.png')
+
 # Add image
 fig.add_layout_image(
 dict(
-    source='imagem',
+    source='https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1536x400.png',
     xref="paper", yref="paper",
     x=0.85, y=1.02,
-    sizex=0.1, sizey=0.1,
+    sizex=0.2, sizey=0.2,
     xanchor="right", yanchor="bottom"
  )
 )
