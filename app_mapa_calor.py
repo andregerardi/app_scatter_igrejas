@@ -25,18 +25,6 @@ st.markdown("""
 <h4 style='text-align: center; color:#54595F;font-family:Segoe UI, sans-serif'>Presença de templos por ano e situação cadastral</h4>
 """, unsafe_allow_html=True)
 
-##Imagem
-# Add image
-fig.add_layout_image(
-dict(
-    source="https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1080x281.png",
-    xref="paper", yref="paper",
-    x=0.98, y=1.02,
-    sizex=0.1, sizey=0.1,
-    xanchor="right", yanchor="bottom"
- )
-)
-
 ##retira o made streamlit no fim da página##
 hide_st_style = """
             <style>
@@ -76,6 +64,17 @@ dict(
     source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png",
     xref="paper", yref="paper",
     x=0.98, y=1.02,
+    sizex=0.1, sizey=0.1,
+    xanchor="right", yanchor="bottom"
+ )
+)
+
+# Add image2
+fig.add_layout_image(
+dict(
+    source="https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1080x281.png",
+    xref="paper", yref="paper",
+    x=0.80, y=.90,
     sizex=0.1, sizey=0.1,
     xanchor="right", yanchor="bottom"
  )
