@@ -36,6 +36,7 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Centralizando o mapa
+
 # Criar o density_mapbox
 fig = px.density_mapbox(dados,
                         width = 1200, height = 950,
@@ -52,5 +53,12 @@ fig = px.density_mapbox(dados,
                         hover_data=['situação_cadastral_rec','RAZÃO SOCIAL'],
                         color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
 
-# Exibir o mapa no Streamlit
-st.plotly_chart(fig, use_container_width=True)
+# Exibir o mapa no Streamlit com tamanho específico do contêiner
+st.markdown(
+    f"""
+    <div style='width: 1100px; height: 950px;'>
+        {fig.to_html(full_html=False)}
+    </div>
+    """,
+    unsafe_allow_html=True
+)
