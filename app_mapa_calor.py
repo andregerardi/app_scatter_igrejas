@@ -56,7 +56,7 @@ with tab1:
                             color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
     st.plotly_chart(fig, use_container_width=True)
 with tab2:
-    fig2 = px.scatter_mapbox(dados,
+    fig = px.scatter_mapbox(dados,
                         width=1100, height=950,
                         lat='latitude_final',
                         lon='longitude_final',
@@ -69,7 +69,7 @@ with tab2:
                         center={"lat": -14.2350, "lon": -51.9253},
                         size_max=3,
                         mapbox_style="open-street-map")
-    st.plotly_chart(fig2, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True)
 
 
 
