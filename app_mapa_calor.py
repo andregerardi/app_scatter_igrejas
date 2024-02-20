@@ -12,11 +12,13 @@ def load_dados():
     dados = dados.reset_index(drop=True)
     # sort
     dados = dados.sort_values(by=['ano'], ascending=True)
+    ## base empresa ativa e baixada
+    emp_at_baixa = dados[dados['situação_cadastral_rec'].isin(['Ativa','Baixada'])
     # return dados
-    return dados
+    return dados, emp_at_baixa
 
 # Chama função
-dados = load_dados()
+dados, emp_at_baixa = load_dados()
 
 ##Titulo
 st.markdown("""
@@ -71,7 +73,7 @@ fig2 = px.scatter_mapbox(dados,
                     mapbox_style="carto-positron")
 
 # Criar o density_mapbox geral
-fig3 = px.density_mapbox(dados,
+fig3 = px.density_mapbox(emp_at_baixa,
                     width = 1200, height = 950,
                     lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
                     lon='longitude_final',  # Substitua 'longitude' pelo nome da coluna que contém a longitude
@@ -89,7 +91,7 @@ fig3 = px.density_mapbox(dados,
 fig.update_layout(coloraxis_showscale=False)
 
 # Criar o scatter_mapbox
-fig4 = px.scatter_mapbox(dados,
+fig4 = px.scatter_mapbox(emp_at_baixa,
                     width=1200, height=950,
                     lat='latitude_final',
                     lon='longitude_final',
