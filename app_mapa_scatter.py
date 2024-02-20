@@ -39,24 +39,21 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-with st.container():
-    col3,col4,col5 = st.columns([0,0,0])
-    with col4:
-        fig = px.scatter_mapbox(dados,
-                                #title='Presença de templos segundo situação cadastral e ano',
-                                width=1100, height=900,
-                                lat='latitude_final',
-                                lon='longitude_final',
-                                size='numero',
-                                color_discrete_sequence=['#d62728'],
-                                hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL'],
-                                hover_name='NOME_MUNICIPIO',
-                                animation_frame="ano",
-                                zoom=3.5,
-                                center={"lat": -14.2350, "lon": -47.9253},
-                                size_max=3,
-                                mapbox_style="open-street-map")
-    
-        # Exibir o mapa no Streamlit
-        st.plotly_chart(fig)
+fig = px.scatter_mapbox(dados,
+                        #title='Presença de templos segundo situação cadastral e ano',
+                        width=1100, height=800,
+                        lat='latitude_final',
+                        lon='longitude_final',
+                        size='numero',
+                        color_discrete_sequence=['#d62728'],
+                        hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL'],
+                        hover_name='NOME_MUNICIPIO',
+                        animation_frame="ano",
+                        zoom=3.5,
+                        center={"lat": -14.2350, "lon": -47.9253},
+                        size_max=3,
+                        mapbox_style="open-street-map")
+
+# Exibir o mapa no Streamlit
+st.plotly_chart(fig)
 
