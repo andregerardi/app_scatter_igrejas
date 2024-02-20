@@ -34,9 +34,10 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Centralizando o mapa
-tab1, tab2 = st.tabs(["Density Map by year", "Scatter Map by year"])
+tab1, tab2, tab3, tab4 = st.tabs(["Density Map by year", "Scatter Map by year",
+                                 "Density Map", "Scatter Map"])
 
-# Criar o density_mapbox
+# Criar o density_mapbox by year
 fig = px.density_mapbox(dados,
                     width = 1200, height = 950,
                     lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
@@ -47,7 +48,7 @@ fig = px.density_mapbox(dados,
                     center={"lat": -14.2350, "lon": -51.9253},
                     zoom=3.5,
                     opacity=0.6,
-                    #animation_frame="ano",
+                    animation_frame="ano",
                     hover_name='NOME_MUNICIPIO',  # Use 'NM_MUN' como hover_name
                     hover_data=['situação_cadastral_rec','RAZÃO SOCIAL'],
                     color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
@@ -69,6 +70,24 @@ fig2 = px.scatter_mapbox(dados,
                     center={"lat": -14.2350, "lon": -51.9253},
                     size_max=3,
                     mapbox_style="carto-positron")
+
+# Criar o density_mapbox geral
+fig3 = px.density_mapbox(dados,
+                    width = 1200, height = 950,
+                    lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
+                    lon='longitude_final',  # Substitua 'longitude' pelo nome da coluna que contém a longitude
+                    z='numero',
+                    radius=5,
+                    mapbox_style="carto-darkmatter",
+                    center={"lat": -14.2350, "lon": -51.9253},
+                    zoom=3.5,
+                    opacity=0.6,
+                    animation_frame="situação_cadastral_rec",
+                    hover_name='NOME_MUNICIPIO',  # Use 'NM_MUN' como hover_name
+                    hover_data=['situação_cadastral_rec','RAZÃO SOCIAL'],
+                    color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
+# Remove a legenda de cores
+fig.update_layout(coloraxis_showscale=False)
 
 with tab1:  
     st.plotly_chart(fig, use_container_width=True)
