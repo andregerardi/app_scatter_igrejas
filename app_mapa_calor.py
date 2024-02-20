@@ -54,5 +54,4 @@ fig = px.density_mapbox(dados,
                         color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
 
 # Adicionando o mapa ao contêiner
-with container:
-    st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, use_container_width=True)
