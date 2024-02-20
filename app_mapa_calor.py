@@ -83,6 +83,16 @@ fig2 = px.scatter_mapbox(dados,
                     center={"lat": -14.2350, "lon": -51.9253},
                     size_max=3,
                     mapbox_style="carto-positron")
+# Add image
+fig2.add_layout_image(
+dict(
+    source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png",
+    xref="paper", yref="paper",
+    x=0.98, y=1.02,
+    sizex=0.1, sizey=0.1,
+    xanchor="right", yanchor="bottom"
+ )
+)
 
 # Criar o density_mapbox geral
 fig3 = px.density_mapbox(emp_at_baixa,
@@ -102,6 +112,17 @@ fig3 = px.density_mapbox(emp_at_baixa,
 # Remove a legenda de cores
 fig3.update_layout(coloraxis_showscale=False)
 
+# Add image
+fig3.add_layout_image(
+dict(
+    source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png",
+    xref="paper", yref="paper",
+    x=0.98, y=1.02,
+    sizex=0.1, sizey=0.1,
+    xanchor="right", yanchor="bottom"
+ )
+)
+
 # Criar o scatter_mapbox
 fig4 = px.scatter_mapbox(emp_at_baixa,
                     width=1200, height=950,
@@ -116,6 +137,16 @@ fig4 = px.scatter_mapbox(emp_at_baixa,
                     center={"lat": -14.2350, "lon": -51.9253},
                     size_max=3,
                     mapbox_style="carto-positron")
+# Add image
+fig4.add_layout_image(
+dict(
+    source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png",
+    xref="paper", yref="paper",
+    x=0.98, y=1.02,
+    sizex=0.1, sizey=0.1,
+    xanchor="right", yanchor="bottom"
+ )
+)
 
 with tab1:  
     st.plotly_chart(fig, use_container_width=True)
