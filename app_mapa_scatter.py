@@ -18,14 +18,14 @@ def load_dados():
 # Chama função
 dados = load_dados()
 
-# Titulo
+##Titulo
 st.markdown("""
 <br>
 <h4 style='text-align: center; color:#54595F;font-family:Segoe UI, sans-serif'>Presença de templos segundo situação cadastral e ano</h4>
 """, unsafe_allow_html=True)
 st.markdown("---")
 
-# Remove o rodapé do Streamlit no fim da página
+##retira o made streamlit no fim da página##
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -35,26 +35,22 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-# Obter o layout atual da página
-page_layout = st.report_thread.get_report_ctx().layout
-
 # Centralizando o mapa
-col1, col2, col3 = st.columns([1, 4, 1])
-with col2:
-    fig = px.scatter_mapbox(dados,
-                            width=1100, height=950,
-                            lat='latitude_final',
-                            lon='longitude_final',
-                            size='numero',
-                            color_discrete_sequence=['#d62728'],
-                            hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL'],
-                            hover_name='NOME_MUNICIPIO',
-                            animation_frame="ano",
-                            zoom=3.5,
-                            center={"lat": -14.2350, "lon": -47.9253},
-                            size_max=3,
-                            mapbox_style="open-street-map")
+fig = px.scatter_mapbox(dados,
+                        width=1100, height=950,
+                        lat='latitude_final',
+                        lon='longitude_final',
+                        size='numero',
+                        color_discrete_sequence=['#d62728'],
+                        hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL'],
+                        hover_name='NOME_MUNICIPIO',
+                        animation_frame="ano",
+                        zoom=3.5,
+                        center={"lat": -14.2350, "lon": -47.9253},
+                        size_max=3,
+                        mapbox_style="open-street-map")
 
-    # Exibir o mapa no Streamlit
-    st.plotly_chart(fig, use_container_width=True)
+# Exibir o mapa no Streamlit
+st.plotly_chart(fig, use_container_width=True)
+
 
