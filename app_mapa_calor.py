@@ -8,6 +8,8 @@ import plotly.express as px
 def load_dados():
     # Seu código para carregar os dados
     dados = pd.read_excel('igrejas.xlsx')[['ano', 'numero', 'situação_cadastral_rec', 'RAZÃO SOCIAL', 'IDENTIFICADOR MATRIZ/FILIAL', 'NOME_MUNICIPIO', 'latitude_final', 'longitude_final']]
+    # cria variavel
+    dados['escala'] = (dados['numero'] - dados['numero'].min()) / (dados['numero'].max() - dados['numero'].min())
     # drop index
     dados = dados.reset_index(drop=True)
     # sort
@@ -37,12 +39,11 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 tab1, tab2 = st.tabs(["Density Map", "Scatter Map"])
 
 # Criar o density_mapbox
-dados['numero_normalized'] = (dados['numero'] - dados['numero'].min()) / (dados['numero'].max() - dados['numero'].min())
 fig = px.density_mapbox(dados,
                     width = 1200, height = 950,
                     lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
                     lon='longitude_final',  # Substitua 'longitude' pelo nome da coluna que contém a longitude
-                    z='numero_normalized',
+                    z='escala',
                     radius=20,
                     mapbox_style="carto-positron",
                     center={"lat": -14.2350, "lon": -51.9253},
