@@ -76,7 +76,7 @@ dict(
     source='https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1536x400.png',
     xref="paper", yref="paper",
     x=0.85, y=1.02,
-    sizex=0.4, sizey=0.4,
+    sizex=0.4, sizey=0.5,
     xanchor="right", yanchor="bottom"
  )
 )
