@@ -13,7 +13,7 @@ def load_dados():
     # sort
     dados = dados.sort_values(by=['ano'], ascending=True)
     ## base empresa ativa e baixada
-    emp_at_baixa = dados[dados['situação_cadastral_rec'].isin(['Ativa','Baixada'])
+    emp_at_baixa = dados[dados['situação_cadastral_rec'].isin(['Ativa','Baixada'])]
     # return dados
     return dados, emp_at_baixa
 
