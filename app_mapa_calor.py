@@ -43,7 +43,7 @@ tab1, tab2, tab3, tab4 = st.tabs(["Density Map por ano", "Scatter Map por ano",
 
 # Criar o density_mapbox by year
 fig = px.density_mapbox(dados,autosize=True,
-                    #width = 1200, height = 950,
+                    
                     lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
                     lon='longitude_final',  # Substitua 'longitude' pelo nome da coluna que contém a longitude
                     z='numero',
