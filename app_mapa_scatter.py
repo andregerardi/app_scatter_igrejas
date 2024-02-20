@@ -39,10 +39,9 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-st.markdown("---")
 with st.container():
-    col3 = st.columns([1.5])
-    with col3:
+    col3,col4,col5 = st.columns([0,1.5,0])
+    with col4:
         # Criar dot map
         fig = px.scatter_mapbox(dados,
                                 #title='Presença de templos segundo situação cadastral e ano',
@@ -58,6 +57,7 @@ with st.container():
                                 center={"lat": -14.2350, "lon": -47.9253},
                                 size_max=3,
                                 mapbox_style="open-street-map")
-    
-        # Exibir o mapa no Streamlit
-        st.plotly_chart(fig)
+
+# Exibir o mapa no Streamlit
+st.plotly_chart(fig)
+
