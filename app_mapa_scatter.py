@@ -6,28 +6,42 @@ from datetime import datetime as dt
 import numpy as np
 
 # Importar os dados
-dados = pd.read_excel(r'igrejas.xlsx')
+@st.cache(allow_output_mutation=True, persist=True)
+def load_dados():
+    dados = pd.read_excel('igrejas.xlsx')
+    # select columns
+    dados = dados[['ano', 'numero', 'situação_cadastral_rec', 'RAZÃO SOCIAL', 'IDENTIFICADOR MATRIZ/FILIAL', 'NOME_MUNICIPIO', 'latitude_final', 'longitude_final']]
+    # drop index
+    dados = dados.reset_index(drop=True)
+    # sort
+    dados = dados.sort_values(by=['ano'], ascending=True)
+    # return dados
+    return dados
 
-# sort data
-dados = dados.sort_values(by=['ano'], ascending=True)
 
-# select columns
-dados = dados[['ano','numero','situação_cadastral_rec','RAZÃO SOCIAL',
-               'IDENTIFICADOR MATRIZ/FILIAL','NOME_MUNICIPIO',
-               'latitude_final','longitude_final']]
+#Chama função
+dados = load_dados()
 
-# drop index
-dados = dados.reset_index(drop=True)
-
+##Titulo
 st.markdown("""
 <br>
 <h4 style='text-align: center; color:#54595F;font-family:Segoe UI, sans-serif'>Presença de templos segundo situação cadastral e ano</h4>
 """, unsafe_allow_html=True)
 st.markdown("---")
 
+##retira o made streamlit no fim da página##
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 # Criar dot map
 fig = px.scatter_mapbox(dados,
-                        title='Presença de templos segundo situação cadastral e ano',
+                        #title='Presença de templos segundo situação cadastral e ano',
                         width=1100, height=950,
                         lat='latitude_final',
                         lon='longitude_final',
