@@ -38,7 +38,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 # Centralizando o mapa
 # Criar o density_mapbox
 fig = px.density_mapbox(dados,
-                        width = 1100, height = 950,
+                        width = 1200, height = 950,
                         lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
                         lon='longitude_final',  # Substitua 'longitude' pelo nome da coluna que contém a longitude
                         z='numero',
