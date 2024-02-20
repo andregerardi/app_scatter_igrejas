@@ -24,7 +24,7 @@ dados, emp_at_baixa = load_dados()
 ##import image logo
 @st.cache(allow_output_mutation=True)
 def load_image():
-    obs = Image.open('obervatório.jpg')
+    obs = Image.open('obervatório.png')
     return obs
 obs = load_image()
 
@@ -77,12 +77,11 @@ dict(
     xanchor="right", yanchor="bottom"
  )
 )
-# Converta a imagem para um array NumPy
-agre_array = np.array(obs)
+
 # Add image
 fig.add_layout_image(
 dict(
-    source=agre_array,
+    source=obs,
     xref="paper", yref="paper",
     x=0.85, y=1.02,
     sizex=0.1, sizey=0.1,
