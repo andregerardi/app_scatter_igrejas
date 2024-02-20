@@ -77,4 +77,4 @@ with tab2:
                             mapbox_style="open-street-map")
     
     # Exibir o mapa no Streamlit
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
