@@ -77,11 +77,12 @@ dict(
     xanchor="right", yanchor="bottom"
  )
 )
-
+# Converta a imagem para um array NumPy
+agre_array = np.array(obs)
 # Add image
 fig.add_layout_image(
 dict(
-    source=obs,
+    source=agre_array,
     xref="paper", yref="paper",
     x=0.85, y=1.02,
     sizex=0.1, sizey=0.1,
