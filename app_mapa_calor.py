@@ -50,7 +50,10 @@ fig = px.density_mapbox(dados,
                     animation_frame="ano",
                     hover_name='NOME_MUNICIPIO',  # Use 'NM_MUN' como hover_name
                     hover_data=['situação_cadastral_rec','RAZÃO SOCIAL'],
-                    color_continuous_scale=None)  # Escolha uma escala de cores apropriada
+                    color_continuous_scale='Viridis)  # Escolha uma escala de cores apropriada
+                    
+                    # Remover a barra de cores
+                    fig.update_layout(coloraxis_colorbar=dict(tickvals=[], ticktext=[]))
 
 
 # Criar o scatter_mapbox
