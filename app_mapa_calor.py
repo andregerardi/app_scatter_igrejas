@@ -71,7 +71,6 @@ dict(
  ),
 margin=dict(l=0, r=0, b=0, t=0)  # Define as margens como zero para ocupar toda a tela
 )
-)
 
 # Add image
 fig.add_layout_image(
