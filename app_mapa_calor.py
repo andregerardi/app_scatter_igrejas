@@ -100,9 +100,20 @@ fig2 = px.scatter_mapbox(dados,
 # Add image
 fig2.add_layout_image(
 dict(
+    source='https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1536x400.png',
+    xref="paper", yref="paper",
+    x=1.0, y=1.00,
+    sizex=0.4, sizey=0.4,
+    xanchor="right", yanchor="bottom"
+ )
+)
+
+# Add image
+fig2.add_layout_image(
+dict(
     source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png",
     xref="paper", yref="paper",
-    x=0.97, y=1.02,
+    x=0.99, y=1.03,
     sizex=0.1, sizey=0.1,
     xanchor="right", yanchor="bottom"
  )
@@ -129,9 +140,20 @@ fig3.update_layout(coloraxis_showscale=False)
 # Add image
 fig3.add_layout_image(
 dict(
+    source='https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1536x400.png',
+    xref="paper", yref="paper",
+    x=1.0, y=1.00,
+    sizex=0.4, sizey=0.4,
+    xanchor="right", yanchor="bottom"
+ )
+)
+
+# Add image
+fig3.add_layout_image(
+dict(
     source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png",
     xref="paper", yref="paper",
-    x=0.98, y=1.02,
+    x=0.99, y=1.03,
     sizex=0.1, sizey=0.1,
     xanchor="right", yanchor="bottom"
  )
@@ -154,9 +176,20 @@ fig4 = px.scatter_mapbox(emp_at_baixa,
 # Add image
 fig4.add_layout_image(
 dict(
+    source='https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1536x400.png',
+    xref="paper", yref="paper",
+    x=1.0, y=1.00,
+    sizex=0.4, sizey=0.4,
+    xanchor="right", yanchor="bottom"
+ )
+)
+
+# Add image
+fig4.add_layout_image(
+dict(
     source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png",
     xref="paper", yref="paper",
-    x=0.98, y=1.02,
+    x=0.99, y=1.03,
     sizex=0.1, sizey=0.1,
     xanchor="right", yanchor="bottom"
  )
