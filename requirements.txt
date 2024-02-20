@@ -5,5 +5,4 @@ matplotlib
 pip
 openpyxl
 plotly
-Pillow
 PIL
