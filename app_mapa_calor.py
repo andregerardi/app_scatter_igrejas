@@ -40,19 +40,19 @@ tab1, tab2 = st.tabs(["Density Map", "Scatter Map"])
 
 # Criar o density_mapbox
 fig = px.density_mapbox(dados,
-                        width = 1200, height = 950,
-                        lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
-                        lon='longitude_final',  # Substitua 'longitude' pelo nome da coluna que contém a longitude
-                        z='numero',
-                        radius=20,
-                        mapbox_style="carto-positron",
-                        center={"lat": -14.2350, "lon": -51.9253},
-                        zoom=3.5,
-                        opacity=0.6,
-                        animation_frame="ano",
-                        hover_name='NOME_MUNICIPIO',  # Use 'NM_MUN' como hover_name
-                        hover_data=['situação_cadastral_rec','RAZÃO SOCIAL'],
-                        color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
+                    width = 1200, height = 950,
+                    lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
+                    lon='longitude_final',  # Substitua 'longitude' pelo nome da coluna que contém a longitude
+                    size='numero',
+                    radius=20,
+                    mapbox_style="carto-positron",
+                    center={"lat": -14.2350, "lon": -51.9253},
+                    zoom=3.5,
+                    opacity=0.6,
+                    animation_frame="ano",
+                    hover_name='NOME_MUNICIPIO',  # Use 'NM_MUN' como hover_name
+                    hover_data=['situação_cadastral_rec','RAZÃO SOCIAL'],
+                    color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
 
 
 # Criar o scatter_mapbox
