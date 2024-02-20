@@ -55,8 +55,7 @@ fig = px.density_mapbox(dados,
 # Remove a legenda de cores
 fig.update_layout(coloraxis_showscale=False)
 
-
-# Criar o scatter_mapbox
+# Criar o scatter_mapbox by year
 fig2 = px.scatter_mapbox(dados,
                     width=1200, height=950,
                     lat='latitude_final',
@@ -89,10 +88,30 @@ fig3 = px.density_mapbox(dados,
 # Remove a legenda de cores
 fig.update_layout(coloraxis_showscale=False)
 
+# Criar o scatter_mapbox
+fig4 = px.scatter_mapbox(dados,
+                    width=1200, height=950,
+                    lat='latitude_final',
+                    lon='longitude_final',
+                    size='numero',
+                    color_discrete_sequence=['#d62728'],
+                    hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL'],
+                    hover_name='NOME_MUNICIPIO',
+                    animation_frame="situação_cadastral_rec",
+                    zoom=3.5,
+                    center={"lat": -14.2350, "lon": -51.9253},
+                    size_max=3,
+                    mapbox_style="carto-positron")
+
 with tab1:  
     st.plotly_chart(fig, use_container_width=True)
 with tab2:
     st.plotly_chart(fig2, use_container_width=True)
+with tab3:
+    st.plotly_chart(fig3, use_container_width=True)
+with tab4:
+    st.plotly_chart(fig4, use_container_width=True)
+
 
 
 
