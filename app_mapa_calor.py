@@ -43,7 +43,7 @@ tab1, tab2, tab3, tab4 = st.tabs(["Density Map por ano", "Scatter Map por ano",
 
 # Criar o density_mapbox by year
 fig = px.density_mapbox(dados,
-                    width = 1400, height = 1000,
+                    width = 1200, height = 950,
                     lat='latitude_final',  # Substitua 'latitude' pelo nome da coluna que contém a latitude
                     lon='longitude_final',  # Substitua 'longitude' pelo nome da coluna que contém a longitude
                     z='numero',
@@ -58,7 +58,6 @@ fig = px.density_mapbox(dados,
                     color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
 # Remove a legenda de cores
 fig.update_layout(coloraxis_showscale=False)
-
 
 # Add image
 fig.add_layout_image(
@@ -81,6 +80,16 @@ dict(
     xanchor="right", yanchor="bottom"
  )
 )
+
+if st.button('Download Chart'):
+    # Convert the figure to an image
+    image = fig.to_image(format='png')
+
+    # Prompt the user to enter a new file name
+    new_file_name = st.text_input('Enter a new file name', 'chart.png')
+
+    # Download the image with the new file name
+    st.download_button(label='Download', data=image, file_name=new_file_name, mime='image/png')
 
 
 # Criar o scatter_mapbox by year
