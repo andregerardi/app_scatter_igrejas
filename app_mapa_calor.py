@@ -57,7 +57,7 @@ fig = px.density_mapbox(dados,
                     hover_data=['situação_cadastral_rec','RAZÃO SOCIAL'],
                     color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
 # Remove a legenda de cores
-fig.update_layout(coloraxis_showscale=False)
+fig.update_layout(coloraxis_showscale=False,margin=dict(l=0, r=0, b=0, t=0))
 
 
 # Add image
@@ -68,8 +68,7 @@ dict(
     x=1.0, y=1.00,
     sizex=0.4, sizey=0.4,
     xanchor="right", yanchor="bottom"
- ),
-margin=dict(l=0, r=0, b=0, t=0)  # Define as margens como zero para ocupar toda a tela
+ )
 )
 
 # Add image
