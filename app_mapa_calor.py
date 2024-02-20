@@ -69,17 +69,6 @@ dict(
  )
 )
 
-# Add image2
-fig.add_layout_image(
-dict(
-    source="https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1080x281.png",
-    xref="paper", yref="paper",
-    x=0.90, y=1.02,
-    sizex=0.5, sizey=0.5,
-    xanchor="right", yanchor="bottom"
-)
-)
-
 # Criar o scatter_mapbox by year
 fig2 = px.scatter_mapbox(dados,
                     width=1200, height=950,
