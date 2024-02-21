@@ -64,7 +64,7 @@ fig.add_layout_image(
 dict(
     source='https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1536x400.png',
     xref="paper", yref="paper",
-    x=1.0, y=1.00,
+    x=1.0, y=.99,
     sizex=0.4, sizey=0.4,
     xanchor="right", yanchor="bottom"
  )
