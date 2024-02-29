@@ -18,39 +18,40 @@ def load_images():
 
 def create_map_figure(data, img1, img2, map_type, size_column):
     fig = None
-    if map_type == "density":
-        fig = px.density_mapbox(data,
-            width=1200, height=950,
-            lat='latitude_final',
-            lon='longitude_final',
-            z='numero',
-            radius=15 if size_column == 'numero' else 10,
-            mapbox_style="carto-positron",
-            center={"lat": -14.2350, "lon": -53.9253},
-            zoom=3.5,
-            opacity=0.6,
-            animation_frame="ano" if map_type == "density" else "situação_cadastral_rec",
-            hover_name='NOME_MUNICIPIO',
-            hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL'],
-            color_continuous_scale='Viridis')
-    elif map_type == "scatter":
-        fig = px.scatter_mapbox(emp_at_baixa ,
-            width=1200, height=950,
-            lat='latitude_final',
-            lon='longitude_final',
-            size=size_column,
-            color_discrete_sequence=['#d62728'],
-            hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL', 'ano'],
-            hover_name='NOME_MUNICIPIO',
-            animation_frame="situação_cadastral_rec",
-            zoom=3.5,
-            center={"lat": -14.2350, "lon": -53.9253},
-            size_max=3,
-            mapbox_style="carto-positron")
-
-    fig.update_layout(coloraxis_showscale=False)
-    fig.add_layout_image(img1)
-    fig.add_layout_image(img2)
+        if map_type == "density":
+            fig = px.density_mapbox(data,
+                width=1200, height=950,
+                lat='latitude_final',
+                lon='longitude_final',
+                z='numero',
+                radius=15 if size_column == 'numero' else 10,
+                mapbox_style="carto-positron",
+                center={"lat": -14.2350, "lon": -53.9253},
+                zoom=3.5,
+                opacity=0.6,
+                animation_frame="ano" if map_type == "density" else "situação_cadastral_rec",
+                hover_name='NOME_MUNICIPIO',
+                hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL'],
+                color_continuous_scale='Viridis')
+        elif map_type == "scatter":
+            fig = px.scatter_mapbox(emp_at_baixa ,
+                width=1200, height=950,
+                lat='latitude_final',
+                lon='longitude_final',
+                size=size_column,
+                color_discrete_sequence=['#d62728'],
+                hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL', 'ano'] if map_type == "scatter" else ['situação_cadastral_rec', 'RAZÃO SOCIAL'],
+                hover_name='NOME_MUNICIPIO',
+                animation_frame="ano" if map_type == "scatter" else "situação_cadastral_rec",
+                zoom=3.5,
+                center={"lat": -14.2350, "lon": -53.9253},
+                size_max=3,
+                mapbox_style="carto-positron")
+    
+    
+        fig.update_layout(coloraxis_showscale=False)
+        fig.add_layout_image(img1)
+        fig.add_layout_image(img2)
     
     return fig
 
