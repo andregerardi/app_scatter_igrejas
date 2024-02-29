@@ -75,17 +75,14 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Centralizando o mapa
-tab1, tab2 = st.tabs(["Density Map por ano", "Scatter Map por ano"])
+tab1, tab2, tab3, tab4 = st.tabs(["Density Map por ano", "Scatter Map por ano",
+                                  "Density Map por situação cadastral", "Scatter Maps por situação cadastral"])
 
 # Criar os mapas - parte I
 with tab1:  
     st.plotly_chart(create_map_figure(dados, img1, img2, "density", "numero"), use_container_width=True)
 with tab2:
     st.plotly_chart(create_map_figure(dados, img1, img2, "scatter", "numero"), use_container_width=True)
-
-# Criar os mapas - parte II
-tab3, tab4 = st.tabs(["Density Map por situação cadastral", "Scatter Maps por situação cadastral"])
-
 with tab3:
     st.plotly_chart(create_map_figure(emp_at_baixa, img1, img2, "density", "numero"), use_container_width=True)
 with tab4:
