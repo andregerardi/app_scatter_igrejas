@@ -74,7 +74,7 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 ## Cria colunas
-col1, col2 = st.columns(2)
+col1, col2 = st.columns([4,4)
 
 # Centralizando o mapa
 tab1, tab2, tab3, tab4 = st.tabs(["Density Map por ano", "Scatter Map por ano",
