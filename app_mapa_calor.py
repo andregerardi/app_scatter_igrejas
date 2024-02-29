@@ -23,7 +23,7 @@ dados, emp_at_baixa = load_dados()
 # salva as imagens
 ## Carregar imagens fora dos gráficos
 st.cache_resource
-def load_images()
+def load_images():
     img1 = dict(source='https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1536x400.png', xref="paper", yref="paper", x=1.0, y=1.00, sizex=0.4, sizey=0.4, xanchor="right", yanchor="bottom")
     img2 = dict(source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png", xref="paper", yref="paper", x=0.99, y=1.02, sizex=0.1, sizey=0.1, xanchor="right", yanchor="bottom")
     return img1, img2
