@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-@st.cache_data(persist=True)
+@st.cache_data(persist=None)
 def load_dados():
     dados = pd.read_excel('igrejas.xlsx', usecols=['ano', 'numero', 'situação_cadastral_rec', 'RAZÃO SOCIAL', 'IDENTIFICADOR MATRIZ/FILIAL', 'NOME_MUNICIPIO', 'latitude_final', 'longitude_final'])
     dados = dados.reset_index(drop=True)
@@ -10,7 +10,7 @@ def load_dados():
     emp_at_baixa = dados[dados['situação_cadastral_rec'].isin(['Ativa','Baixada'])]
     return dados, emp_at_baixa
 
-@st.cache_data(persist=True)
+@st.cache_data(persist=None)
 def load_images():
     img1 = dict(source='https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1536x400.png', xref="paper", yref="paper", x=1.0, y=1.00, sizex=0.4, sizey=0.4, xanchor="right", yanchor="bottom")
     img2 = dict(source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png", xref="paper", yref="paper", x=0.99, y=1.02, sizex=0.1, sizey=0.1, xanchor="right", yanchor="bottom")
