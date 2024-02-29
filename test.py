@@ -55,18 +55,8 @@ def create_map_figure(data, img1, img2, map_type, size_column):
     return fig
 
 # Adicione um botão para carregar dados
-if st.button("Carregar Dados"):
-    dados, emp_at_baixa = load_dados()
-    img1, img2 = load_images()
-    my_bar = st.progress(0, text=progress_text)
-
-    for percent_complete in range(100):
-        time.sleep(0.01)
-        my_bar.progress(percent_complete + 1, text=progress_text)
-    time.sleep(1)
-    my_bar.empty()
-    
-    st.button("Rerun")
+dados, emp_at_baixa = load_dados()
+img1, img2 = load_images()
 
 # Titulo
 st.markdown("""
