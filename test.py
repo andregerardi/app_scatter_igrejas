@@ -95,3 +95,14 @@ with tab3:
     st.plotly_chart(create_map_figure(emp_at_baixa, img1, img2, "density", "numero"), use_container_width=True)
 with tab4:
     st.plotly_chart(create_map_figure(emp_at_baixa, img1, img2, "scatter", "numero"), use_container_width=True)
+
+# Criar gráfico de barras animado por ano
+fig = px.bar(df, x="numero", y="situação_cadastral_rec", animation_frame="ano", title="Gráfico de Barras Animado por Ano",
+             labels={'numero': 'Número', 'situação_cadastral_rec': 'Situação Cadastral'},
+             color='situação_cadastral_rec', height=600)
+
+# Adicionar título e rótulos do eixo
+fig.update_layout(title_text="Gráfico de Barras Animado por Ano", xaxis_title="Número", yaxis_title="Situação Cadastral")
+
+# Exibir o gráfico no Streamlit
+st.plotly_chart(fig, use_container_width=True)
