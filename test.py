@@ -54,10 +54,6 @@ def create_map_figure(data, img1, img2, map_type, size_column):
     
     return fig
 
-# Adicione um botão para carregar dados
-dados, emp_at_baixa = load_dados()
-img1, img2 = load_images()
-
 # Titulo
 st.markdown("""
 <h4 style='text-align: center; color:#54595F;font-family:Segoe UI, sans-serif'><br></h4>
@@ -72,6 +68,11 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
+
+
+# Adicione um botão para carregar dados
+dados, emp_at_baixa = load_dados()
+img1, img2 = load_images()
 
 # Centralizando o mapa
 tab1, tab2, tab3, tab4 = st.tabs(["Density Map por ano", "Scatter Map por ano",
