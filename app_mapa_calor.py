@@ -7,7 +7,7 @@ import plotly.express as px
 @st.cache_data
 def load_dados():
     # Seu código para carregar os dados
-    dados = pd.read_excel('igrejas.xlsx')[['ano', 'numero', 'situação_cadastral_rec', 'RAZÃO SOCIAL', 'IDENTIFICADOR MATRIZ/FILIAL', 'NOME_MUNICIPIO', 'latitude_final', 'longitude_final']]
+    dados = dados = pd.read_excel('igrejas.xlsx', usecols=['ano', 'numero', 'situação_cadastral_rec', 'RAZÃO SOCIAL', 'IDENTIFICADOR MATRIZ/FILIAL', 'NOME_MUNICIPIO', 'latitude_final', 'longitude_final'])
     # drop index
     dados = dados.reset_index(drop=True)
     # sort
@@ -16,25 +16,33 @@ def load_dados():
     emp_at_baixa = dados[dados['situação_cadastral_rec'].isin(['Ativa','Baixada'])]
     # return dados
     return dados, emp_at_baixa
-
 # Chama função
 dados, emp_at_baixa = load_dados()
 
+
+# salva as imagens
+## Carregar imagens fora dos gráficos
+@st.cache_data
+def load_images()
+    img1 = dict(source='https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1536x400.png', xref="paper", yref="paper", x=1.0, y=1.00, sizex=0.4, sizey=0.4, xanchor="right", yanchor="bottom")
+    img2 = dict(source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png", xref="paper", yref="paper", x=0.99, y=1.02, sizex=0.1, sizey=0.1, xanchor="right", yanchor="bottom")
+    return img1, img2
+# Chama função
+img1, img2 = load_images()
 
 ##Titulo - Presença de espaços de culto por ano e situação cadastral
 st.markdown("""
 <h4 style='text-align: center; color:#54595F;font-family:Segoe UI, sans-serif'><br></h4>
 """, unsafe_allow_html=True)
 
-##retira o made streamlit no fim da página##
-hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html=True)
+# Esconder rodapé e outros elementos do Streamlit
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+""", unsafe_allow_html=True)
 
 # Centralizando o mapa
 tab1, tab2, tab3, tab4 = st.tabs(["Density Map por ano", "Scatter Map por ano",
@@ -58,28 +66,8 @@ fig = px.density_mapbox(dados,
                     color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
 # Remove a legenda de cores
 fig.update_layout(coloraxis_showscale=False)
-
-# Add image
-fig.add_layout_image(
-dict(
-    source='https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1536x400.png',
-    xref="paper", yref="paper",
-    x=1.0, y=1.00,
-    sizex=0.4, sizey=0.4,
-    xanchor="right", yanchor="bottom"
- )
-)
-
-# Add image
-fig.add_layout_image(
-dict(
-    source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png",
-    xref="paper", yref="paper",
-    x=0.99, y=1.02,
-    sizex=0.1, sizey=0.1,
-    xanchor="right", yanchor="bottom"
- )
-)
+fig.add_layout_image(img1)
+fig.add_layout_image(img2)
 
 # Criar o scatter_mapbox by year
 fig2 = px.scatter_mapbox(dados,
@@ -96,26 +84,8 @@ fig2 = px.scatter_mapbox(dados,
                     size_max=3,
                     mapbox_style="carto-positron")
 # Add image
-fig2.add_layout_image(
-dict(
-    source='https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1536x400.png',
-    xref="paper", yref="paper",
-    x=1.0, y=1.00,
-    sizex=0.4, sizey=0.4,
-    xanchor="right", yanchor="bottom"
- )
-)
-
-# Add image
-fig2.add_layout_image(
-dict(
-    source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png",
-    xref="paper", yref="paper",
-    x=0.99, y=1.02,
-    sizex=0.1, sizey=0.1,
-    xanchor="right", yanchor="bottom"
- )
-)
+fig2.add_layout_image(img1)
+fig2.add_layout_image(img2)
 
 # Criar o density_mapbox geral
 fig3 = px.density_mapbox(emp_at_baixa,
@@ -134,28 +104,9 @@ fig3 = px.density_mapbox(emp_at_baixa,
                     color_continuous_scale='Viridis')  # Escolha uma escala de cores apropriada
 # Remove a legenda de cores
 fig3.update_layout(coloraxis_showscale=False)
-
 # Add image
-fig3.add_layout_image(
-dict(
-    source='https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1536x400.png',
-    xref="paper", yref="paper",
-    x=1.0, y=1.00,
-    sizex=0.4, sizey=0.4,
-    xanchor="right", yanchor="bottom"
- )
-)
-
-# Add image
-fig3.add_layout_image(
-dict(
-    source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png",
-    xref="paper", yref="paper",
-    x=0.99, y=1.02,
-    sizex=0.1, sizey=0.1,
-    xanchor="right", yanchor="bottom"
- )
-)
+fig3.add_layout_image(img1)
+fig3.add_layout_image(img2)
 
 # Criar o scatter_mapbox
 fig4 = px.scatter_mapbox(emp_at_baixa,
@@ -172,26 +123,8 @@ fig4 = px.scatter_mapbox(emp_at_baixa,
                     size_max=3,
                     mapbox_style="carto-positron")
 # Add image
-fig4.add_layout_image(
-dict(
-    source='https://cebrap.org.br/wp-content/uploads/2023/06/observatorio-religiao3-1536x400.png',
-    xref="paper", yref="paper",
-    x=1.0, y=1.00,
-    sizex=0.4, sizey=0.4,
-    xanchor="right", yanchor="bottom"
- )
-)
-
-# Add image
-fig4.add_layout_image(
-dict(
-    source="https://cebrap.org.br/wp-content/themes/cebrap/images/logo-nav.png",
-    xref="paper", yref="paper",
-    x=0.99, y=1.02,
-    sizex=0.1, sizey=0.1,
-    xanchor="right", yanchor="bottom"
- )
-)
+fig4.add_layout_image(img1)
+fig4.add_layout_image(img2)
 
 with tab1:  
     st.plotly_chart(fig, use_container_width=True)
