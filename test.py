@@ -34,7 +34,7 @@ def create_map_figure(data, img1, img2, map_type, size_column):
             hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL'],
             color_continuous_scale='Viridis')
     elif map_type == "scatter":
-        fig = px.scatter_mapbox(data,
+        fig = px.scatter_mapbox(emp_at_baixa ,
             width=1200, height=950,
             lat='latitude_final',
             lon='longitude_final',
