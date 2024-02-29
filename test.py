@@ -42,7 +42,7 @@ def create_map_figure(data, img1, img2, map_type, size_column):
             color_discrete_sequence=['#d62728'],
             hover_data=['situação_cadastral_rec', 'RAZÃO SOCIAL', 'ano'] if map_type == "scatter" else ['situação_cadastral_rec', 'RAZÃO SOCIAL'],
             hover_name='NOME_MUNICIPIO',
-            animation_frame="ano" if map_type == "scatter" else "situação_cadastral_rec",
+            animation_frame="situação_cadastral_rec" if map_type == "scatter" else "situação_cadastral_rec",
             zoom=3.5,
             center={"lat": -14.2350, "lon": -53.9253},
             size_max=3,
