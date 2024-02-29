@@ -73,25 +73,22 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-## Cria colunas
-col1, col2 = st.columns([4,4])
-
 # Centralizando o mapa
 tab1, tab2, tab3, tab4 = st.tabs(["Density Map por ano", "Scatter Map por ano",
                                   "Density Map por situação cadastral", "Scatter Maps por situação cadastral"])
 
 # Criar os mapas - parte I
 with tab1:
-        # Criar gráfico de barras animado por ano
-        fig = px.bar(df, x="numero", y="situação_cadastral_rec", animation_frame="ano", title="Gráfico de Barras Animado por Ano",
-                     labels={'numero': 'Número', 'situação_cadastral_rec': 'Situação Cadastral'},
-                     color='situação_cadastral_rec', height=600)
-        
-        # Adicionar título e rótulos do eixo
-        fig.update_layout(title_text="Gráfico de Barras Animado por Ano", xaxis_title="Número", yaxis_title="Situação Cadastral")
-        
-        # Exibir o gráfico no Streamlit
-        st.plotly_chart(fig, use_container_width=True)
+    # Criar gráfico de barras animado por ano
+    fig = px.bar(df, x="numero", y="situação_cadastral_rec", animation_frame="ano", title="Gráfico de Barras Animado por Ano",
+                 labels={'numero': 'Número', 'situação_cadastral_rec': 'Situação Cadastral'},
+                 color='situação_cadastral_rec', height=600)
+    
+    # Adicionar título e rótulos do eixo
+    fig.update_layout(title_text="Gráfico de Barras Animado por Ano", xaxis_title="Número", yaxis_title="Situação Cadastral")
+    
+    # Exibir o gráfico no Streamlit
+    st.plotly_chart(fig, use_container_width=True)
 with tab2:
     st.plotly_chart(create_map_figure(dados, img1, img2, "scatter", "numero"), use_container_width=True)
 with tab3:
