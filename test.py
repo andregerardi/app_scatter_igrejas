@@ -18,7 +18,6 @@ def load_images():
 
 def create_map_figure(data, img1, img2, map_type, size_column):
     fig = None
-
     if map_type == "density":
         fig = px.density_mapbox(data,
             width=1200, height=950,
@@ -74,13 +73,19 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+## Cria colunas
+col1, col2 = st.columns()
+
 # Centralizando o mapa
 tab1, tab2, tab3, tab4 = st.tabs(["Density Map por ano", "Scatter Map por ano",
                                   "Density Map por situação cadastral", "Scatter Maps por situação cadastral"])
 
 # Criar os mapas - parte I
-with tab1:  
-    st.plotly_chart(create_map_figure(dados, img1, img2, "density", "numero"), use_container_width=True)
+with tab1:
+    with col1:
+        st.plotly_chart(create_map_figure(dados, img1, img2, "density", "numero"), use_container_width=True)
+    with col2:
+        st.bar_chart(dados, x="numero", y="situação_cadastral_rec")
 with tab2:
     st.plotly_chart(create_map_figure(dados, img1, img2, "scatter", "numero"), use_container_width=True)
 with tab3:
