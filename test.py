@@ -54,9 +54,10 @@ def create_map_figure(data, img1, img2, map_type, size_column):
     
     return fig
 
-# Chama a função
-dados, emp_at_baixa = load_dados()
-img1, img2 = load_images()
+# Adicione um botão para carregar dados
+if st.button("Carregar Dados"):
+    dados, emp_at_baixa = load_dados()
+    img1, img2 = load_images()
 
 # Titulo
 st.markdown("""
