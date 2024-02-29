@@ -79,7 +79,7 @@ tab1, tab2, tab3, tab4 = st.tabs(["Density Map por ano", "Scatter Map por ano",
 
 # Criar os mapas - parte I
 with tab1:
-    st.plotly_chart(create_map_figure(dados, img1, img2, "scatter", "numero"), use_container_width=True)
+    st.plotly_chart(create_map_figure(dados, img1, img2, "density", "numero"), use_container_width=True)
 with tab2:
     st.plotly_chart(create_map_figure(dados, img1, img2, "scatter", "numero"), use_container_width=True)
 with tab3:
