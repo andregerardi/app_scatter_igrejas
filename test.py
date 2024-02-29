@@ -82,9 +82,6 @@ tab1, tab2, tab3, tab4 = st.tabs(["Density Map por ano", "Scatter Map por ano",
 
 # Criar os mapas - parte I
 with tab1:
-    with col1:
-        st.plotly_chart(create_map_figure(dados, img1, img2, "density", "numero"), use_container_width=True)
-    with col2:
         # Criar gráfico de barras animado por ano
         fig = px.bar(df, x="numero", y="situação_cadastral_rec", animation_frame="ano", title="Gráfico de Barras Animado por Ano",
                      labels={'numero': 'Número', 'situação_cadastral_rec': 'Situação Cadastral'},
