@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 
 # Importar os dados
-@st.cache(allow_output_mutation=True, persist=True)
+@st.cache(allow_output_mutation=True, persist=False)
 def load_dados():
     # Seu código para carregar os dados
     dados = pd.read_excel('igrejas.xlsx')[['ano', 'numero', 'situação_cadastral_rec', 'RAZÃO SOCIAL', 'IDENTIFICADOR MATRIZ/FILIAL', 'NOME_MUNICIPIO', 'latitude_final', 'longitude_final']]
